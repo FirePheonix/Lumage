@@ -1,5 +1,6 @@
-'use client'
+'use client';
 
+import Image from 'next/image';
 import acmeLogo from '@/assets/logo-acme.png';
 import apexLogo from '@/assets/logo-apex.png';
 import quantum from '@/assets/logo-quantum.png';
@@ -37,11 +38,13 @@ export const LogoTicker = () => {
               style={{ willChange: 'transform' }}
             >
               {[...logos, ...logos].map((logo, idx) => (
-                <img
-                  key={`${logo.src}-${idx}`}
-                  src={logo.src}
+                <Image
+                  key={idx}
+                  src={logo}
                   alt="Partner Logo"
-                  className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  className="opacity-80 hover:opacity-100 transition-opacity"
+                  height={24} // h-6
+                  style={{ width: 'auto' }}
                 />
               ))}
             </motion.div>

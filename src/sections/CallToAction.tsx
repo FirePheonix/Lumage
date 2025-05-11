@@ -8,12 +8,12 @@ import { motion, useAnimate, useInView } from "framer-motion";
 
 export const CallToAction = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
   const [contentScope, animate] = useAnimate();
   
   // Handle mouse move to update the light position
-  const handleMouseMove = (e:any) => {
+  const handleMouseMove = (e:React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!containerRef.current) return;
     
     const rect = containerRef.current.getBoundingClientRect();
@@ -24,7 +24,7 @@ export const CallToAction = () => {
   };
   
   // Reset position when mouse leaves
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setMousePosition({ x: 50, y: 50 }); // Center position
   };
   

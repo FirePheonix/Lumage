@@ -1,15 +1,7 @@
 import type { NextConfig } from "next";
 import type {Configuration} from "webpack";
 
-const repoName = "Lumage"; 
-
 const nextConfig: NextConfig = {
-  output: "export", // Enable static export for GitHub Pages
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-  images: {
-    unoptimized: true, // Required for static export if using <Image>
-  },
   webpack(config: Configuration) {
     // Find the existing rule that handles SVGs
     const fileLoaderRule = config.module?.rules?.find(

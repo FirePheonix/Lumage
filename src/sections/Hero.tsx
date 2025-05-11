@@ -11,7 +11,7 @@ import Image from "next/image";
 import Pointer from "@/components/pointer";
 import { motion, useAnimate } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import cursorYouImage from "@/assets/images/cursor-you.svg"
+import cursorYouImage from "@/assets/images/cursor-you.png"
 
 
 // export const Hero = () => {
@@ -80,7 +80,7 @@ export default function Hero() {
   const [leftPointerScope, leftPointerAnimate] = useAnimate()
   const [rightPointerScope, rightPointerAnimate] = useAnimate()
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Handle mouse move to update the light position
   const handleMouseMove = (e:any) => {
